@@ -16,3 +16,10 @@ def test_workshop_morning_times():
     result = compute_overlap_time(time_range_1, time_range_2)
     expected = [("2021-04-30 10:05:00", "2021-04-30 10:55:00"), ("2021-04-30 11:05:00", "2021-04-30 11:55:00"), ("2021-03-30 12:05:00", "2021-04-30 12:55:00")]
     assert result == expected 
+
+def test_no_overlap():
+    time_range_1 = time_range("2010-01-12 10:00:00", "2010-01-12 12:00:00")
+    time_range_2 = time_range("2021-04-30 10:05:00", "2021-04-30 12:55:00", 1 , 0)
+    result =  compute_overlap_time(time_range_1, time_range_2)
+    expected = []
+    assert result == expected
